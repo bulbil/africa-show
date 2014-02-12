@@ -1,9 +1,8 @@
-####AFRICA THING
+####AFRICA SHOW
 
-netart, dude.
+a slightly more self explanatory version on africa-thing
 
 featuring:
 
-- reveal.js
 - d3.js
 - cloudmailin api
