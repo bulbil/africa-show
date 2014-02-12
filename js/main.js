@@ -11,7 +11,7 @@ var at = {
 	width: $(window).width(),
 	panels: $("div.panel").size(),
 	border: $(window).width() / $("div.panel").size(),
-	anchors: [],
+	anchors: [ 	"#home","#video","#preamble","#two","#three","#marrakesh","#four","#sheep","#carcass","#five","#prego","#hearts","#asterisk","#slideshow"],
 
 	resize: function() {
 
@@ -216,7 +216,7 @@ var at = {
 				.find("img")
 				.attr("src", "img/slideshow/" + rand + ".jpg")
 				.css("margin-left", "100%")
-				.animate({marginLeft: "-200%"}, 3000);
+				.animate({marginLeft: "-200%"}, 6000);
 		} else {
 
 			slides.append("<div>")
@@ -224,7 +224,7 @@ var at = {
 				.attr("class", "block")
 				.css("width", function() { console.log((rand/n * 100) + "%"); return (rand/n * 100) + "%";})
 				.css("margin-left", "100%")
-				.animate({marginLeft: "-200%", easing: 'linear'}, rand/n * 3000);
+				.animate({marginLeft: "-200%", easing: 'linear'}, rand/n * 6000);
 		}
 	}
 }
@@ -241,18 +241,24 @@ at.videoFeed = new Jscii({
 
 var fBool = vBool = tBool = iBool = wBool = sBool
  = false;
+var placer = 0;
  
 $(document).keydown(function(d) { 
 
 	console.log('keyCode ' + d.keyCode);
+	console.log('placer ' + placer);
 	var xCurrent = $(window).scrollLeft();
 	var panelWidth = at.width + at.border;
 
-	function skipAround(offset){
-		offset = (offset < 0) ? 0 : offset;
+	function skipAround(int){
+
+		var offset = (at.anchors[int]) ? $('div' + at.anchors[int]).offset().left : 0;
+		console.log('int ' + int);
+		console.log('offset ' + offset);
+		offset = (offset< 0) ? 0 : offset;
 		var end = $("body").width() - panelWidth;
 		if(offset > end) offset = xCurrent;
-	    $('html,body').animate( {scrollLeft: offset } , 'slow');
+	    $('body,html').animate( {scrollLeft: offset } , 'slow');
 	}
 
 	switch(d.keyCode) {
@@ -268,7 +274,7 @@ $(document).keydown(function(d) {
 			if(!fBool) { 
 				clearInterval(at.indexTimer); 
 			}
-			at.indexTimer = setInterval( function() { at.index(fBool); }, 6000);			
+			at.indexTimer = setInterval( function() { at.index(fBool); }, 1000);			
 			fBool = !fBool;
 			break;
 
@@ -278,10 +284,10 @@ $(document).keydown(function(d) {
 		case(73): iBool = !iBool; at.instructions(iBool); break;
 		// left arrow + j
 		case(74):
-		case(37): skipAround(xCurrent - panelWidth); break;
+		case(37): placer -= 1; skipAround(placer); break;
 		// right arrow + l
 		case(76):
-		case(39): skipAround(xCurrent + panelWidth); break;
+		case(39): placer += 1; skipAround(placer);  break;
 		// space
 		case(32): 
 
@@ -293,7 +299,7 @@ $(document).keydown(function(d) {
 		// s
 		case(83): 
 				if(sBool) clearInterval(at.slideTimer);
-				else at.slideTimer = setInterval(function() {at.slideshow(sBool) }, 4000) ; 
+				else at.slideTimer = setInterval(function() {at.slideshow(sBool) }, 5000) ; 
 				sBool = !sBool; 
 				break;
 		// t
@@ -316,6 +322,14 @@ $(document).keydown(function(d) {
 	}
 
 	;})
+
+var vBool = true;
+$("a#visibility").click(function() {
+	vBool = !vBool;
+	console.log(vBool);
+	var visibility = (vBool) ? 'visible' : 'hidden';
+	$('div#explanation').css("visibility", visibility);
+});
 
 $("div.iframe").click(function() { 
 	
