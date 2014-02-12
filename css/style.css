@@ -1,0 +1,230 @@
+
+/* * *
+*
+*   <コ:彡
+*   
+*   @title africa-thing
+*   @author nabil kashyap (www.nabilk.com)
+*
+* * */
+
+body {
+
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	overflow: hidden;
+	font: 1em "minion-pro";
+}
+
+#container {
+	height: 100%;
+}
+
+div.panel, div.outer {
+
+	display: inline-block;
+	float: left;
+	height: 100%;
+	z-index: 0;
+	overflow: hidden;
+	background: #E6E4EE;
+}
+
+div.outer {
+	background: #fff;
+}
+
+video#webrtc { display: none;}
+
+div#video-frame {
+	margin-top: 5%; 
+	margin-left: 5%;
+	height: 85%;
+	width: 90%;
+	z-index: -1;
+	overflow: hidden;
+}
+
+pre#jscii-webrtc {
+
+	margin-top: -25%;
+	margin-left: -150%;
+	font: .75em "minion-pro";
+	color: #000;
+	height: inherit;
+}
+
+div#overlay {
+
+	position: fixed;
+	top: 15%;
+	left: 15%;
+	display: block;
+	background-repeat: no-repeat;
+	width: 70%;
+	height: 70%;
+	overflow: hidden;
+}
+
+img.flickr, img.old{
+
+	position: absolute;
+	top: 0;
+	width: 120%;
+	margin: -10% -10%;
+}
+
+div.double-img {
+	width: 80%;
+	height: 80%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 5%;
+	overflow: hidden;
+}
+
+div.double-img img{
+	width: 49%;
+	min-width: 405px;
+}
+
+div.double-img img:last-child { float: right;}
+
+img.single-img{
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 5%;
+}
+
+div.title{
+	width: 70%;
+	height: 70%;
+	margin-top: 7%;
+	margin-right: auto;
+	margin-left: auto;
+	overflow: hidden;
+}
+
+.header div.number {
+
+	width: 40%;
+	height: 100%;
+	float: right;
+}
+
+.header div#fixed.number {
+	position: absolute;
+	top: 0;
+	left: 3.2%;
+	width: 500px;
+}
+
+.header div.number h1{
+
+	font: italic 40em "helvetica neue"; 
+	color: #fff;
+	margin-top: 35%;
+}
+
+.text div.title h1 { text-align: center; font-size: 1000%;}
+div#clock { color: #c9ebf2; background: #2477bf; opacity: .8;}
+div#prego { color: #ffff00; background: #fd0066; opacity: .8;}
+
+h1{
+	font-size: 700%;
+	font-style: italic;
+	opacity: .75;
+	padding-left: .2em;
+	padding-right: .2em;
+}
+
+h2 {
+	text-align: center;
+	width: 100%;
+	margin-top: 5%;
+	margin-left: auto;
+	margin-right: auto;
+	font-size: 400%;
+	opacity: .75;
+}
+
+div.iframe {
+
+	z-index: 99;
+	width: 90%;
+	margin-left: auto;	
+	margin-right: auto;	
+	margin-top: 5%;	
+	height: 79%;
+}
+
+div.iframe img {
+	height: 100%;
+}
+
+iframe {
+	display: block;
+	float: right;
+	width: 49%;
+	height: 100%;
+	overflow: none;
+	opacity: 0;
+	background-color: #ddd;
+}
+
+div#instructions{
+	margin-top: 25%; 
+	float: left;
+	width: 40%;
+	opacity: 0;
+}
+
+div#instructions h1{
+
+	text-align: right;
+ 	font-size: 400%;
+ 	width: 150%;
+ 	padding-left: 25%;
+}
+
+div#instructions h1.left { text-align: left;}
+
+/*div#slideshow {
+	width: 70%;
+	height: 70%;
+	margin-top: -.75%;
+	margin-left: auto;
+	margin-right: auto;
+	overflow: hidden;
+	background-color: #101010;
+	opacity: 1;
+}
+*/
+
+div#slideshow h1{
+	color: #E6E4EE;
+	height: 0;
+	margin-top: 0;
+	font-size: 500%;
+	text-align: center;
+}
+
+div#slideshow div{
+
+	width: 100%;
+	height: 100%;
+}
+
+div#slideshow div img {
+	height: 100%;
+}
+
+div#slideshow div .block {
+	display: block;
+	height: 100%;
+	background: #f0f0f0;
+}
